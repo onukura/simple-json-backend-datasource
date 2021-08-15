@@ -5,7 +5,7 @@ webpack:
 	webpack --config=./webpack/webpack.dev.conf.js
 
 build:
-	go build -i -o ./dist/simple-json-plugin_linux_amd64 ./backend
+	go build -i -o ./dist/simple-json-plugin_linux_amd64 ./pkg
 
 deps-front:
 	yarn install --pure-lockfile
