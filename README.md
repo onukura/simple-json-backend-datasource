@@ -1,4 +1,4 @@
-## Simple JSON Datasource - a generic backend datasource
+## WIP: Simple JSON Datasource - a generic backend datasource
 
 More documentation about datasource plugins can be found in the [Docs](https://grafana.com/docs/grafana/latest/developers/plugins/).
 
@@ -16,38 +16,18 @@ Your backend needs to implement 4 urls:
 * The frontend part located in the `src/` folder
 * The backend part located in the `backend/` folder
 
-## Installation using Docker (Recommended)
-
-Video explanation: [Youtube, 3 minutes 37 seconds](https://youtu.be/m4FgMA7b-Jk)
-
-* Install frontend dependencies `docker run -v ${PWD}:/opt/sjbd -w /opt/sjbd node:11 yarn install --pure-lockfile`
-* Build frontend `docker run -v ${PWD}:/opt/sjbd -w /opt/sjbd node:11 node_modules/webpack/bin/webpack.js --config=./webpack/webpack.dev.conf.js`
-* Install backend dependencies `docker run -v ${PWD}:/go/src/github.com/grafana/sjbd -w /go/src/github.com/grafana/sjbd instrumentisto/dep ensure`
-* Compile backend `docker run -v ${PWD}:/go/src/github.com/grafana/sjbd -w /go/src/github.com/grafana/sjbd golang go build -i -o ./dist/simple-json-plugin_linux_amd64 ./backend`
-* Launch Grafana and Fake SimpleJson Server `docker-compose up -d`
-
-Grafana will be available at `localhost:3000`, login `admin`, password `admin`. **Add the datasource using url** `http://fake-simple-json-datasource:3333`.
-
-## Local Installation
-
-To install this plugin using the `grafana-cli` tool:
-```
-sudo grafana-cli plugins install grafana-simple-json-datasource
-sudo service grafana-server restart
-```
-See [here](https://grafana.com/plugins/grafana-simple-json-datasource/installation) for more
-information.
-
 ### Example backend implementations
 - https://github.com/bergquist/fake-simple-json-datasource
 - https://github.com/smcquay/jsonds
 
 ### Build the project
 
-* Install frontend dependencies `yarn install --pure-lockfile`
-* Build frontend `webpack --config=./webpack/webpack.dev.conf.js`
-* Install backend dependencies `dep ensure`
-* Compile backend `go build -i -o ./dist/simple-json-plugin_linux_amd64 ./backend`
+```shell
+yarn install --pure-lockfile
+yarn build
+go mod tidy
+mage -v
+```
 
 ## Running fake JSON server
 
@@ -224,9 +204,3 @@ Example map response
  - Dont execute hidden queries
  - Template support for metrics queries
  - Template support for annotation queries
-
-# If using Grafana 2.6
-NOTE!
-for grafana 2.6 please use [this version](https://github.com/grafana/simple-json-datasource/commit/b78720f6e00c115203d8f4c0e81ccd3c16001f94)
-
-Copy the data source you want to /public/app/plugins/datasource/. Then restart grafana-server. The new data source should now be available in the data source type dropdown in the Add Data Source View.
