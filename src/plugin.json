@@ -16,8 +16,8 @@
   "info": {
     "description": "simple json datasource",
     "author": {
-      "name": "Grafana Labs",
-      "url": "https://grafana.com"
+      "name": "onukura",
+      "url": "https://github.com/onukura"
     },
     "logos": {
       "small": "img/simpleJson_logo.svg",
@@ -26,19 +26,19 @@
     "links": [
       {
         "name": "GitHub",
-        "url": "https://github.com/grafana/simple-json-backend-datasource"
+        "url": "https://github.com/onukura/simple-json-backend-datasource"
       },
       {
         "name": "MIT License",
-        "url": "https://github.com/grafana/simple-json-backend-datasource/blob/master/LICENSE"
+        "url": "https://github.com/onukura/simple-json-backend-datasource/blob/master/LICENSE"
       }
     ],
-    "version": "1.0.0",
-    "updated": "2019-04-10"
+    "version": "2.0.0",
+    "updated": "2021-09-01"
   },
 
   "dependencies": {
-    "grafanaVersion": "6.x.x",
+    "grafanaVersion": "8.x.x",
     "plugins": []
   }
 }

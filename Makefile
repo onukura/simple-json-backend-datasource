@@ -5,10 +5,10 @@ webpack:
 	webpack --config=./webpack/webpack.dev.conf.js
 
 build:
-	go build -i -o ./dist/simple-json-plugin_linux_amd64 ./pkg
+	mage -v
 
 deps-front:
 	yarn install --pure-lockfile
 
 deps-back:
-	dep ensure
+	go mod tidy

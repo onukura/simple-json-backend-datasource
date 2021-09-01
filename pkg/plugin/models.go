@@ -1,4 +1,4 @@
-package main
+package plugin
 
 import (
 	"net/http"
@@ -26,5 +26,5 @@ type RowValues []interface{}
 type RemoteDatasourceRequest struct {
 	queryType string
 	req       *http.Request
-	queries   []*simplejson.Json
+	queries   *simplejson.Json //[]*simplejson.Json
 }
