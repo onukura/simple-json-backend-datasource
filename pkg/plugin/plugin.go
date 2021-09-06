@@ -34,7 +34,6 @@ var (
 	_ instancemgmt.InstanceDisposer = (*JsonDatasource)(nil)
 )
 
-
 // NewJsonDatasource creates a new datasource instance.
 func NewJsonDatasource() *JsonDatasource {
 	im := datasource.NewInstanceManager(newJsonDatasourceInstance)
@@ -314,7 +313,7 @@ var httpClient = &http.Client{
 		TLSClientConfig: &tls.Config{
 			Renegotiation: tls.RenegotiateFreelyAsClient,
 		},
-		Proxy: http.ProxyFromEnvironment,
+		Proxy:                 http.ProxyFromEnvironment,
 		TLSHandshakeTimeout:   10 * time.Second,
 		ExpectContinueTimeout: 1 * time.Second,
 		MaxIdleConns:          100,
